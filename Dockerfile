@@ -25,6 +25,7 @@ ADD uwsgi.ini /opt/django/uwsgi.ini
 COPY config /config
 COPY nginx.conf /etc/nginx/sites-enabled/nginx.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY sudoers /etc/sudoers
 
 # nginx config
 RUN sed -i -e"s/keepalive_timeout\s*65/keepalive_timeout 2/" /etc/nginx/nginx.conf
