@@ -16,11 +16,9 @@ RUN pip install uwsgi
 
 RUN rm /etc/nginx/sites-enabled/default
 
-RUN pip install Django
-
 RUN mkdir -p /opt/django/app
-ADD uwsgi_params /opt/django/uwsgi_params
-ADD uwsgi.ini /opt/django/uwsgi.ini
+ADD uwsgi_params /opt/uwsgi/uwsgi_params
+ADD uwsgi.ini /opt/uwsgi/uwsgi.ini
 
 COPY config /config
 COPY nginx.conf /etc/nginx/sites-enabled/nginx.conf
