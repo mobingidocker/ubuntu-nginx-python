@@ -31,6 +31,7 @@ RUN sed -i -e"s/keepalive_timeout 2/keepalive_timeout 2;\n\tclient_max_body_size
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 ADD run.sh /run.sh
+ADD startup.sh /startup.sh
 RUN chmod 755 /*.sh
 
 EXPOSE 22 80
