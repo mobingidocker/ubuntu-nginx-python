@@ -10,7 +10,7 @@ RUN mkdir -p /var/run/sshd
 
 RUN apt-get install -y nginx
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential git python python-dev python-setuptools sqlite3 supervisor
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential git python python-dev python-setuptools sqlite3 supervisor libpq-dev libmysqlclient-dev
 RUN easy_install pip
 RUN pip install uwsgi
 
