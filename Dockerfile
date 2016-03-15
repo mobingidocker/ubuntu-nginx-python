@@ -1,5 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER david.siaw@mobingi.com
+MAINTAINER sawanoboriyu@higanworks.com
 
 RUN apt-get update --fix-missing
 RUN apt-get install -y supervisor
@@ -10,8 +11,8 @@ RUN mkdir -p /var/run/sshd
 
 RUN apt-get install -y nginx
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential git python python-dev python-setuptools sqlite3 supervisor libpq-dev libmysqlclient-dev postgresql mysql-client
-RUN easy_install pip
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-uwsgi build-essential git sqlite3 supervisor libpq-dev libmysqlclient-dev postgresql mysql-client
+RUN apt-get install -y python python-pip python-dev python-setuptools uwsgi-plugin-python
 RUN pip install uwsgi
 
 RUN rm /etc/nginx/sites-enabled/default
