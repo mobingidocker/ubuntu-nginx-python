@@ -17,7 +17,7 @@ if [ -f manage.py ]; then
   echo "Migrate database"
   python manage.py migrate | tee /var/log/migrate.log
 fi
-PYTHON_APP=${MOCLOUD_PYTHON_APP:-'myapp:app'}
+PYTHON_APP=${MOCLOUD_PYTHON_APP:-'wsgi'}
 sed -i -e "s@REPLACE_PYTHON_APPLICATION@${PYTHON_APP}@" /opt/uwsgi/uwsgi.ini
 
 echo "complete" > /var/log/container_status
