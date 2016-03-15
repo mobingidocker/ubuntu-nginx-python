@@ -13,7 +13,8 @@ RUN apt-get install -y nginx
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-uwsgi build-essential git sqlite3 supervisor libpq-dev libmysqlclient-dev postgresql mysql-client
 RUN apt-get install -y python python-pip python-dev python-setuptools uwsgi-plugin-python
-RUN pip install uwsgi
+ADD provision.sh /provision.sh
+RUN /provision.sh && rm -f /provision.sh
 
 RUN rm /etc/nginx/sites-enabled/default
 
