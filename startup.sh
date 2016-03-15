@@ -1,1 +1,1 @@
-startup/startup27.sh
+startup/startup34.sh
