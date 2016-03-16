@@ -15,10 +15,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-uwsgi build
 ENV PYENV_ROOT /opt/pyenv
 ADD provision.sh /provision.sh
 RUN /provision.sh && rm -f /provision.sh
+ENV PATH /opt/pyenv/shims:$PATH
 
 RUN rm /etc/nginx/sites-enabled/default
 
-RUN mkdir -p /opt/django/app
+RUN mkdir -p /opt/python/app
 ADD uwsgi_params /opt/uwsgi/uwsgi_params
 ADD uwsgi.ini /opt/uwsgi/uwsgi.ini
 
