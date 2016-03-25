@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-PYENV_PYTHON=2.7.11
+PYENV_PYTHON=3.5.1
 
 curl -sL https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | PYENV_DEBUG=true bash
 /opt/pyenv/bin/pyenv install ${PYENV_PYTHON}
