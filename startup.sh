@@ -11,11 +11,11 @@ chown -R www-data:www-data /srv/python/app
 
 echo "Running Pip..."
 cd /srv/python/app
-/opt/pyenv/shims/pip install -r requirements.txt | tee /var/log/pip.log
+/opt/pyenv/shims/pip install -r requirements.txt
 
 if [ -f manage.py ]; then
   echo "Migrate database"
-  /opt/pyenv/shims/python manage.py migrate | tee /var/log/migrate.log
+  /opt/pyenv/shims/python manage.py migrate
 fi
 PYTHON_APP=${MOCLOUD_PYTHON_APP:-'wsgi'}
 sed -i -e "s@REPLACE_PYTHON_APPLICATION@${PYTHON_APP}@" /opt/uwsgi/uwsgi.ini
